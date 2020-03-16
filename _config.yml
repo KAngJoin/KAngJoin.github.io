@@ -1,10 +1,10 @@
 # Site settings
-title: Kidu Blog
+title: DK Blog
 SEOTitle: 杜康的博客 | DK Blog
 header-img: img/bg-desk.jpg
 email: dukang1127@163.com
 description: ""
-keyword: "杜康 dk DK Dk dK 杜康的博客 Kidu"
+keyword: "杜康 dk DK Dk dK 杜康的博客 "
 url: "http://kangjoin.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/kangjoin/kangjoin.github.io.git" # you code repository
