@@ -11,17 +11,17 @@ github_repo: "https://github.com/kangjoin/kangjoin.github.io.git" # you code rep
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "Be careful, starting with every detail." #细心，从每一个细节开始。
+sidebar-about-description: "Du Kang"
 sidebar-avatar: /img/about-by-dk.jpg # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # SNS settings
 #RSS: false
 # weibo_username:     qiubaiying
-#zhihu_username:     qiubaiying
-#github_username:    qiubaiying
-#facebook_username:  baiying.qiu.7
-#jianshu_username:   e71990ada2fd
+zhihu_username:     KAng
+github_username:    KAngJoin
+# jianshu_username:   e71990ada2fd
 #twitter_username:   qiubaiying
+#facebook_username:  baiying.qiu.7
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
