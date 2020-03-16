@@ -1,0 +1,25 @@
+---
+layout: post
+title: Vue2.x响应式原理
+subtitle: Vue3.x都出来了，你还不懂Vue2.x的响应式原理？
+date: 2020-03-16
+author: dukang
+header-img: img/vue-bg.jpg
+catalog: true
+tags: 
+    - Vue
+---
+
+
+
+> 数组的响应式使用Object.definePrototype进行数据拦截；数组的响应式则修改数组原型方法['push', 'pop', 'shift', 'unshift', 'splice', 'reverse', 'sort']。
+
+
+
+# Vue2.x响应式存在的不足
+
+1. 如果需要响应的数据量较大，初始化时递归遍历的性能不好、消耗大；
+2. 新增和删除属性无法监听；
+3. 数组的响应化需要额外实现，并且只能使用对应的7个原型方法；
+4. 对象的修改语法有限制（需要使用vm.$set,直接obj.peroto会出现无法监听的问题）
+
