@@ -60,6 +60,8 @@ tags:
 
 通过使用网址地址。直接获取资源
 
+`插图中文字大小 18pt = 24px =1.5em `
+
 ### 侧边栏
 
 设置是在 `_config.yml`文件里面的`Sidebar settings`那块。

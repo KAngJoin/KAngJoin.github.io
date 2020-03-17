@@ -1,4 +1,5 @@
 @media (min-width: 1200px) {
+
   .post-container,
   .sidebar-container {
     padding-right: 5%;
@@ -208,6 +209,7 @@ a img:focus {
 
 article {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 blockquote {
