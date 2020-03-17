@@ -54,6 +54,12 @@ tags:
 
 ```
 
+### 图片显示
+
+`![](http://dukangblog.top/img/vue.observer.watcher.jpg)`
+
+通过使用网址地址。直接获取资源
+
 ### 侧边栏
 
 设置是在 `_config.yml`文件里面的`Sidebar settings`那块。
