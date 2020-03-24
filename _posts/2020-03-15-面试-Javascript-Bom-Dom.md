@@ -1,13 +1,13 @@
 ---
 layout: post
-title: 面试—Javascript（ES系列）+DOM+BOM（持续更新...）
+title: 复习—Javascript（ES系列）+DOM+BOM（持续更新...）
 subtitle: 总结梳理知识点，温故知新
 date: 2020-03-20
 author: dukang
 header-img: img/smile.jpg
 catalog: true
 tags: 
-    - 面试
+    - 复习（面试）
 ---
 
 # Ⅰ、JavaScript
