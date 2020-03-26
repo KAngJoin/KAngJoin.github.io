@@ -191,9 +191,11 @@ launcher();
 */
 ```
 
-### 处理异步的框架-RxJS
+# 处理异步的框架-RxJS
 
-### webWorker的多线程机制
+# webWorker的多线程机制
+
+[阮老师](http://www.ruanyifeng.com/blog/2018/07/web-worker.html)
 
 # 拓展阅读
 
