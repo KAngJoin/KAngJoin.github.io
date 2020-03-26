@@ -31,6 +31,12 @@ tags:
 4. 引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。
 5. 当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。
 
+### js中类型判断的哪些事？
+
+- [typeof]()
+- [instanceof](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof)
+- [Object.prototype.toString.call(target)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
+
 ### == 和 === 的区别
 
 `==`	先比较类型，类型不同先进行类型转换；再比较值；
