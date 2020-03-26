@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Javascript的连续赋值问题
-subtitle: 连续赋值的理解
-date: 2020-03-12
+title: Javascript连续赋值
+subtitle: var a = b = 3
+date: 2020-03-21
 author: dukang
 header-img: img/js.jpg
 catalog: true
@@ -183,4 +183,3 @@ a.n = a = { m: 1 }
 1. `只要对变量进行赋值就会进行内存重新申请`
 2. 根据运算符优先级运算分析
 
-# 
