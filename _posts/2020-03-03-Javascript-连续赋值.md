@@ -2,7 +2,7 @@
 layout: post
 title: Javascript的连续赋值问题
 subtitle: 连续赋值的理解
-date: 2020-03-126
+date: 2020-03-12
 author: dukang
 header-img: img/js.jpg
 catalog: true
