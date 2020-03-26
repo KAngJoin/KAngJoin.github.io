@@ -51,76 +51,88 @@ console.log(b);// 2
 ##### 浅拷贝
 
 - 数组浅拷贝
-
-  ```javascript
-  let a = [0,[1],2,3,4];
-  let b = a;
-  b[0] = 1;
-  console.log(a);//[ 1, [ 1 ], 2, 3, 4 ]
-  console.log(b);//[ 1, [ 1 ], 2, 3, 4 ]
-  ```
+```javascript
+let a = [0,[1],2,3,4];
+let b = a;
+b[0] = 1;
+console.log(a);//[ 1, [ 1 ], 2, 3, 4 ]
+console.log(b);//[ 1, [ 1 ], 2, 3, 4 ]
+```
 
 - 对象浅拷贝
 
-  ```javascript
-  let obj_a = {
-    name :'ken',
-    age : 10
-  };
-  let  obj_b= obj_a;
-  obj_b.name = 'kimi';
-  obj_b.job = 'teacher';
-  console.log(obj_b);//{ name: 'kimi', age: 10, job: 'teacher' }
-  console.log(obj_a);//{ name: 'kimi', age: 10, job: 'teacher' }
-  ```
-
+```javascript
+let obj_a = {
+  name :'ken',
+  age : 10
+};
+let  obj_b= obj_a;
+obj_b.name = 'kimi';
+obj_b.job = 'teacher';
+console.log(obj_b);//{ name: 'kimi', age: 10, job: 'teacher' }
+console.log(obj_a);//{ name: 'kimi', age: 10, job: 'teacher' }
+```
 ##### 深拷贝(拷贝对象各个层级的属性)
 
 - 数组深拷贝(slice,concat)
+```javascript
+let a = [0,[1],2,3,4];
+let b = a.slice();
+b[0] = 1;
+console.log(a);//[ 0, [ 1 ], 2, 3, 4 ]
+console.log(b);//[ 1, [ 1 ], 2, 3, 4 ]
 
-  ```javascript
-  let a = [0,[1],2,3,4];
-  let b = a.slice();
-  b[0] = 1;
-  console.log(a);//[ 0, [ 1 ], 2, 3, 4 ]
-  console.log(b);//[ 1, [ 1 ], 2, 3, 4 ]
-
-  注意 
-  let a = [0,[1],2,3,4];
-  let b = a.slice();
-  b[1][0]= 8;
-  console.log(a); //[ 0, [ 8 ], 2, 3, 4 ]
-  console.log(b); //[ 0, [ 8 ], 2, 3, 4 ]
-  ```
+注意 
+let a = [0,[1],2,3,4];
+let b = a.slice();
+b[1][0]= 8;
+console.log(a); //[ 0, [ 8 ], 2, 3, 4 ]
+console.log(b); //[ 0, [ 8 ], 2, 3, 4 ]
+```
 
 - 对象深拷贝
 
-  ```javascript
-  //JSON对象的parse和stringify 方法
-  let obj_a = {
-    name: 'ken',
-    age: 10,
-    son: {
-      age: 1
-    },
-    method: function () {
-      console.log(666);
-    }
-  };
-  let obj_b = JSON.parse(JSON.stringify(obj_a));
-  obj_b.name = 'kimi';
-  obj_b.job = 'teacher';
-  obj_a.son.age = 2;
-  console.log(obj_b); //{ name: 'kimi', age: 10, son: { age: 1 }, job: 'teacher' }
-  console.log(obj_a);//{ name: 'ken', age: 10, son: { age: 2 } }
+JSON对象的parse和stringify 方法
 
-  obj_a.method();//666
-  obj_b['method'] = function () {
-    console.log(999);
+```javascript
+
+let obj_a = {
+  name: 'ken',
+  age: 10,
+  son: {
+    age: 1
+  },
+  method: function () {
+    console.log(666);
   }
-  obj_b.method();//999
-  obj_a.method();//666
-  ```
+};
+let obj_b = JSON.parse(JSON.stringify(obj_a));
+obj_b.name = 'kimi';
+obj_b.job = 'teacher';
+obj_a.son.age = 2;
+console.log(obj_b); //{ name: 'kimi', age: 10, son: { age: 1 }, job: 'teacher' }
+console.log(obj_a);//{ name: 'ken', age: 10, son: { age: 2 } }
+
+obj_a.method();//666
+obj_b['method'] = function () {
+  console.log(999);
+}
+obj_b.method();//999
+obj_a.method();//666
+
+
+```
+[JSON实现深克隆的弊端](https://juejin.im/post/5c20509bf265da611b585bec#heading-6)
+
+```javascript
+let a = {
+  age: undefined,
+  jobs: function () {},
+  name: 'yck'
+};
+console.log(JSON.parse(JSON.stringify(a))); 
+// { name: 'yck'}, 
+```
 
 ##### 递归遍历
 
