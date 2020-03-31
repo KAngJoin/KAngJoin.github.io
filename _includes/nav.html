@@ -29,39 +29,40 @@
         </div>
         <!-- /.navbar-collapse -->
     </div>
+    <div id="dk-back-top">Top</div>
     <!-- /.container -->
 </nav>
 <script>
     // Drop Bootstarp low-performance Navbar
     // Use customize navbar with high-quality material design animation
     // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
+    var $body = document.body;
     var $toggle = document.querySelector('.navbar-toggle');
     var $navbar = document.querySelector('#huxblog_navbar');
     var $collapse = document.querySelector('.navbar-collapse');
 
     var __HuxNav__ = {
-        close: function(){
+        close: function () {
             $navbar.className = " ";
             // wait until animation end.
-            setTimeout(function(){
+            setTimeout(function () {
                 // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
+                if ($navbar.className.indexOf('in') < 0) {
                     $collapse.style.height = "0px"
                 }
-            },400)
+            }, 400)
         },
-        open: function(){
+        open: function () {
             $collapse.style.height = "auto"
             $navbar.className += " in";
         }
     }
 
     // Bind Event
-    $toggle.addEventListener('click', function(e){
+    $toggle.addEventListener('click', function (e) {
         if ($navbar.className.indexOf('in') > 0) {
             __HuxNav__.close()
-        }else{
+        } else {
             __HuxNav__.open()
         }
     })
@@ -77,9 +78,56 @@
      *
      * Also, we use 'click' instead of 'touchstart' as compromise
      */
-    document.addEventListener('click', function(e){
-        if(e.target == $toggle) return;
-        if(e.target.className == 'icon-bar') return;
+    document.addEventListener('click', function (e) {
+        if (e.target == $toggle) return;
+        if (e.target.className == 'icon-bar') return;
         __HuxNav__.close();
     })
+    // backtop
+    var topEle = document.getElementById('dk-back-top');
+    function debounce(fn, wait = 300, immediate = true) {
+        var timer;
+        return function () {
+            var context = this;
+            var args = arguments;
+            timer && clearTimeout(timer);
+            if (immediate) {
+                var runNow = !timer;
+                timer = setTimeout(function () {
+                    timer = null;
+                }, wait);
+                if (runNow) fn.apply(context, args)
+            } else {
+                timer = setTimeout(function () {
+                    fn.apply(context, args);
+                }, wait);
+            }
+        }
+    };
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+        if (topEle) {
+            var timer = setTimeout(function () {
+                topEle.style.visibility = 'hidden'
+                clearTimeout(timer)
+            }, 0)
+        }
+    }
+    function backTop() {
+        var scrolltopTemp = document.documentElement.scrollTop || document.body.scrollTop;
+        if (topEle && scrolltopTemp < 100) {
+            topEle.style.visibility = 'hidden';
+            topEle.removeEventListener('click', scrollToTop, false)
+        }
+        if (topEle && topEle.style.visibility === 'visible') return
+        if (scrolltopTemp > 500 && topEle) {
+            topEle.style.visibility = 'visible';
+            topEle.addEventListener('click', scrollToTop, false)
+        } else {
+            topEle.style.visibility = 'hidden';
+            topEle.removeEventListener('click', scrollToTop, false)
+        }
+    }
+    window.addEventListener('scroll', debounce(backTop), false)
+
 </script>
