@@ -29,9 +29,9 @@
         </div>
         <!-- /.navbar-collapse -->
     </div>
-    <div id="dk-back-top">Top</div>
     <!-- /.container -->
 </nav>
+<div id="dk-back-top">Top</div>
 <script>
     // Drop Bootstarp low-performance Navbar
     // Use customize navbar with high-quality material design animation
@@ -115,7 +115,7 @@
     }
     function backTop() {
         var scrolltopTemp = document.documentElement.scrollTop || document.body.scrollTop;
-        if (topEle && scrolltopTemp < 100) {
+        if (topEle && scrolltopTemp < 200) {
             topEle.style.visibility = 'hidden';
             topEle.removeEventListener('click', scrollToTop, false)
         }
