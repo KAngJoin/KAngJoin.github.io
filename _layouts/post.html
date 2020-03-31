@@ -228,7 +228,12 @@ layout: default
     };
     function scrollToTop() {
         window.scrollTo(0, 0);
-        topEle && (topEle.style.visibility = 'hidden')
+        if (topEle) {
+            var timer = setTimeout(function () {
+                topEle.style.visibility = 'hidden'
+                clearTimeout(timer)
+            }, 0)
+        }
     }
     function backTop() {
         if (topEle && topEle.style.visibility === 'visible') return
