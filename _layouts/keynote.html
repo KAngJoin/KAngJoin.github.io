@@ -8,21 +8,6 @@ layout: default
 
 <!-- Post Header -->
 <style type="text/css">
-    .back-top {
-        position: fixed;
-        right: 5%;
-        bottom: 5%;
-        width: 3em;
-        height: 3em;
-        line-height: 3em;
-        border-radius: 50%;
-        background-color: rgba(206, 109, 57, 0.3);
-        text-align: center;
-        color: #fff;
-        letter-spacing: 0.05em;
-        visibility: hidden;
-        cursor: pointer;
-    }
 
     header.intro-header {
         /*background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')*/
@@ -186,46 +171,11 @@ layout: default
                 {% endif %}
             </div>
         </div>
-        <div class="back-top">Top</div>
     </div>
 </article>
 
 <!-- resize header to fullscreen keynotes -->
 <script>
-    var topEle = document.getElementsByClassName('back-top')[0];
-    function debounce(fn, wait = 300, immediate = true) {
-        var timer;
-        return function () {
-            var context = this;
-            var args = arguments;
-            timer && clearTimeout(timer);
-            if (immediate) {
-                var runNow = !timer;
-                timer = setTimeout(function () {
-                    timer = null;
-                }, wait);
-                if (runNow) fn.apply(context, args)
-            } else {
-                timer = setTimeout(function () {
-                    fn.apply(context, args);
-                }, wait);
-            }
-        }
-    };
-    function scrollToTop() {
-        window.scrollTo(0, 0)
-    }
-    function backTop() {
-        if (topEle && topEle.style.visibility === 'visible') return
-        var scrolltopTemp = document.documentElement.scrollTop || document.body.scrollTop;
-        if (scrolltopTemp > 500 && topEle) {
-            topEle.style.visibility = 'visible';
-            topEle.addEventListener('click', scrollToTop, false)
-        } else {
-            topEle.style.visibility = 'hidden';
-            topEle.removeEventListener('click', scrollToTop, false)
-        }
-    }
     var $header = document.getElementsByTagName("header")[0];
     function resize() {
         /*
@@ -234,8 +184,6 @@ layout: default
          * -  var user can scroll in mobile device, seeing the keynote-view is unscrollable
          */
         $header.style.height = (window.innerHeight - 85) + 'px';
-        // top
-
     }
     document.addEventListener('DOMContentLoaded', function () {
         resize();
@@ -246,8 +194,6 @@ layout: default
     window.addEventListener('resize', function () {
         resize();
     })
-
-    window.addEventListener('scroll', debounce(backTop), false)
     resize();
 </script>
 
