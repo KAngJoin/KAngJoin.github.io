@@ -116,13 +116,6 @@
     }
     function scrollToTop() {
         window.scrollTo(0, 0);
-        if (topEle) {
-            var timer = setTimeout(() => {
-                topEle.style.visibility = 'hidden'
-                topEle.removeEventListener('click', scrollToTop, false)
-                clearTimeout(timer)
-            }, 0);
-        }
     }
     function backTop() {
         var scrolltopTemp = document.documentElement.scrollTop || document.body.scrollTop;
@@ -130,9 +123,8 @@
             if (topEle.style.visibility == 'hidden') return
             topEle.style.visibility = 'hidden';
             topEle.removeEventListener('click', scrollToTop, false)
-        }
-        if (topEle && topEle.style.visibility == 'visible') return
-        if (topEle && scrolltopTemp > 500) {
+        } else {
+            if (topEle && topEle.style.visibility == 'visible') return
             topEle.style.visibility = 'visible';
             topEle.addEventListener('click', scrollToTop, false)
         }
