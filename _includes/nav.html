@@ -115,18 +115,14 @@
     }
     function backTop() {
         var scrolltopTemp = document.documentElement.scrollTop || document.body.scrollTop;
-        if (topEle && scrolltopTemp < 200) {
+        if (topEle && scrolltopTemp < 500) {
+            if (topEle.style.visibility === 'hidden') return
             topEle.style.visibility = 'hidden';
             topEle.removeEventListener('click', scrollToTop, false)
         }
         if (topEle && topEle.style.visibility === 'visible') return
-        if (scrolltopTemp > 500 && topEle) {
-            topEle.style.visibility = 'visible';
-            topEle.addEventListener('click', scrollToTop, false)
-        } else {
-            topEle.style.visibility = 'hidden';
-            topEle.removeEventListener('click', scrollToTop, false)
-        }
+        topEle.style.visibility = 'visible';
+        topEle.addEventListener('click', scrollToTop, false)
     }
     window.addEventListener('scroll', debounce(backTop), false)
 
