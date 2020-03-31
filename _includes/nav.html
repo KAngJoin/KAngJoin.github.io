@@ -107,7 +107,10 @@
     function scrollToTop() {
         window.scrollTo(0, 0);
         if (topEle) {
-            topEle.style.visibility = 'hidden'
+            var timer = setTimeout(() => {
+                topEle.style.visibility = 'hidden'
+                clearTimeout(timer)
+            }, 0);
         }
     }
     function backTop() {
