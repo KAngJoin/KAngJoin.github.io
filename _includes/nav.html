@@ -109,13 +109,14 @@
         if (topEle) {
             var timer = setTimeout(() => {
                 topEle.style.visibility = 'hidden'
+                topEle.removeEventListener('click', scrollToTop, false)
                 clearTimeout(timer)
             }, 0);
         }
     }
     function backTop() {
         var scrolltopTemp = document.documentElement.scrollTop || document.body.scrollTop;
-        if (topEle && scrolltopTemp < 500) {
+        if (topEle && scrolltopTemp < 400) {
             if (topEle.style.visibility == 'hidden') return
             topEle.style.visibility = 'hidden';
             topEle.removeEventListener('click', scrollToTop, false)
