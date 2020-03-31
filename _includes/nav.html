@@ -107,22 +107,21 @@
     function scrollToTop() {
         window.scrollTo(0, 0);
         if (topEle) {
-            var timer = setTimeout(function () {
-                topEle.style.visibility = 'hidden'
-                clearTimeout(timer)
-            }, 0)
+            topEle.style.visibility = 'hidden'
         }
     }
     function backTop() {
         var scrolltopTemp = document.documentElement.scrollTop || document.body.scrollTop;
         if (topEle && scrolltopTemp < 500) {
-            if (topEle.style.visibility === 'hidden') return
+            if (topEle.style.visibility == 'hidden') return
             topEle.style.visibility = 'hidden';
             topEle.removeEventListener('click', scrollToTop, false)
         }
-        if (topEle && topEle.style.visibility === 'visible') return
-        topEle.style.visibility = 'visible';
-        topEle.addEventListener('click', scrollToTop, false)
+        if (topEle && topEle.style.visibility == 'visible') return
+        if (topEle && scrolltopTemp > 500) {
+            topEle.style.visibility = 'visible';
+            topEle.addEventListener('click', scrollToTop, false)
+        }
     }
     window.addEventListener('scroll', debounce(backTop), false)
 
