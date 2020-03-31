@@ -85,25 +85,35 @@
     })
     // backtop
     var topEle = document.getElementById('dk-back-top');
-    function debounce(fn, wait = 100, immediate = true) {
-        var timer;
+    function throttle(fn, delay) {
+        let timer, context, args,
+            // 记录上次触发的时间
+            previous = 0;
         return function () {
-            var context = this;
-            var args = arguments;
-            timer && clearTimeout(timer);
-            if (immediate) {
-                var runNow = !timer;
-                timer = setTimeout(function () {
+            let now = +new Date(),
+                //下次触发fn剩余的时间
+                remaining = delay - (now - previous);
+            context = this;
+            args = arguments;
+            // 无剩余时间，或系统时间改变(人为)
+            if (remaining <= 0 || remaining > delay) {
+                // 首次触发会立即执行本部分
+                if (timer) {
+                    clearTimeout(timer)
                     timer = null;
-                }, wait);
-                if (runNow) fn.apply(context, args)
-            } else {
-                timer = setTimeout(function () {
-                    fn.apply(context, args);
-                }, wait);
+                }
+                previous = now;
+                fn.apply(context, args)
+            } else if (!timer) {
+                // 设置定时器
+                timer = setTimeout(() => {
+                    fn.apply(context, args)
+                    previous = +new Date();
+                    timer = null;
+                }, remaining);
             }
         }
-    };
+    }
     function scrollToTop() {
         window.scrollTo(0, 0);
         if (topEle) {
@@ -116,7 +126,7 @@
     }
     function backTop() {
         var scrolltopTemp = document.documentElement.scrollTop || document.body.scrollTop;
-        if (topEle && scrolltopTemp < 400) {
+        if (topEle && scrolltopTemp < 500) {
             if (topEle.style.visibility == 'hidden') return
             topEle.style.visibility = 'hidden';
             topEle.removeEventListener('click', scrollToTop, false)
@@ -127,6 +137,6 @@
             topEle.addEventListener('click', scrollToTop, false)
         }
     }
-    window.addEventListener('scroll', debounce(backTop), false)
+    window.addEventListener('scroll', throttle(backTop, 300), false)
 
 </script>
