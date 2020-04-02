@@ -7,7 +7,7 @@ author: dukang
 header-img: img/smile.jpg
 catalog: true
 tags: 
-    - 复习（面试）
+    - 复习
 ---
 
 ### 手写冒泡排序
@@ -36,5 +36,9 @@ function bubbleSort(array) {
 // 内循环：负责寻找极值，并修改数组。
 ```
 
-复杂度为  $O(n^2)$ ，若是数组长度过大？[其它排序](https://github.com/KAngJoin/Algorithm/tree/master/Sorting)
+复杂度为  $O(n^2)$ ，若是数组长度过大？
+
+
+
+[其它排序](https://github.com/KAngJoin/Algorithm/tree/master/Sorting)
 

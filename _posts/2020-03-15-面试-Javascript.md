@@ -7,7 +7,7 @@ author: dukang
 header-img: img/smile.jpg
 catalog: true
 tags: 
-    - 复习（面试）
+    - 复习
 ---
 
 ### JS基本数据类型
