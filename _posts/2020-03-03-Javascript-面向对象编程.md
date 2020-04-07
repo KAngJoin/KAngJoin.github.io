@@ -14,11 +14,71 @@ tags:
 
 面向对象编程（Object-oriented programming）是一种将需求抽象成一个对象，针对这个对象分析其特征（属性）和动作（方法）。它有三大特点：继承、封装、多态。可提高程序的`重用性`、`灵活性`和`可拓展性`。实现高内聚，低耦合的目标。
 
+###### 构造函数
+
+所谓"构造函数"，其实就是一个普通函数，但是内部使用了`this`变量。对构造函数使用`new`运算符，就能生成实例，并且`this`变量会绑定在实例对象上。
+
+![](../img/oop.jpg)
+
 ### 封装
 
+##### ES5
 
+闭包加prototype实现
 
+```js
+var Car = (function () {
+  // 静态私有，只创建一次
+  var num = 100;
+  function check() { }
+  // 构造函数
+  function _car(name, price) {
+    //对象安全模式
+    if (!(this instanceof _book)) return new _car(name, price);
+    this.name = name;
+    this.price = price;
+    // ...
+  }
+  // prototype 对象
+  _car.prototype = {
+    description: 'vehicle',
+    display: function () {
+      return 'dispay '
+    }
+  }
+  return _car
+})()
+```
 
+##### ES6 class
+
+```js
+class Car {
+  constructor(name, price) {
+    //实例属性
+    this.name = name;
+    this.price = price;
+  }
+  //静态方法，只能通过类调用，子类只能通过super调用
+  static check() {
+    return 'yes'
+  }
+  //实例方法
+  run() {
+    return 'running'
+  }
+  // 取值函数
+  get prop() {
+    return 'getter'
+  }
+  // 存值函数
+  set prop(value) {
+    return 'setter:' + value
+  }
+}
+// 静态属性
+Car.tool = 'plant';
+```
 
 ### 继承
 
@@ -27,8 +87,6 @@ tags:
 ### 多态
 
 
-
-### Class
 
 ### 参考
 
