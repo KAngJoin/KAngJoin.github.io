@@ -40,8 +40,7 @@ function checkType(target) {
 }
 // ！注意
 Object.prototype.toString.call(null) // [object Null]
-//只能检测 undefined null string number boolean Symbol BigInt Array function Object
-//无法检测 Date ......
+// undefined null string number boolean Symbol BigInt Array function Object Date ......
 ```
 
 ```JavaScript
