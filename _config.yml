@@ -16,8 +16,8 @@ sidebar-avatar: /img/about-by-dk.jpg # use absolute URL, seeing it's used in bot
 
 # SNS settings
 #RSS: false
-# weibo_username:     qiubaiying
-zhihu_username:     KAng
+weibo_username:     前端微剧场
+zhihu_username:     前端微剧场
 github_username:    KAngJoin
 # jianshu_username:   e71990ada2fd
 #twitter_username:   qiubaiying
