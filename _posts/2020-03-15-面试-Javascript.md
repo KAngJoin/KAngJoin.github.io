@@ -87,22 +87,6 @@ tags:
 >
 >自由...
 
-### 如何提升 JavaScript 变量的存储性能？
-
-- 思路
-
-> 访问字面量和局部变量的速度最快，访问数组元素和对象成员相对较慢;
->
-> 由于局部变量存在于作用域链的起始位置，因此访问局部变量比访问跨作用域变量更快，全局变量的访问速度最慢;
->
-> 避免使用`with`和`catch`，除非是有必要的情况下;
->
-> 嵌套的对象成员会明显影响性能，尽量少用，例如`window.loacation.href`;
->
-> 属性和方法在原型链中的位置越深，则访问它的速度也越慢;
->
-> 通常来说，需要访问多次的对象成员、数组元素、跨作用域变量可以保存在局部变量中从而提升 JavaScript 执行效率;
-
 ### null和undefined的区别
 
 - `null`表示"没有对象"，即该处不应该有值。（是一个关键字，不能赋值）
@@ -145,61 +129,4 @@ function fn(name, add) {
 }
 ```
 **注意**： void 返回的都是 undefined 类型
-
-### js判断对象是否为空对象
-
-- 将js对象转换为json字符串，再判断该字符串是否为 "{}"
-
-```javascript
-let obj = {};
-let b = (JSON.stringify(obj) == '{}');
-console.log(b);	// true
-//注意的是：obj是对象类型，“{}”是字符串类型。
-
-//所以 不能使用 toString（） // 错误的做法
-let obj = {};
-let b = (obj.toString() == '{}'); 
-console.log(b);  // false   
-```
-
-- for in 遍历对象 
-
-```javascript
-let obj = {};
-let b = function () {    
-  for (let key in obj) { 
-    return false    
-  }   
-  return true
-};
-console.log(b()); // true
-```
-
-- jQuery的 isEmptyObject方法
-
-```javascript
-//该方法是对 （for in）的封装；
-let obj = {};
-let b = $.isEmptyObject(obj);
-alert(b); // true
-```
-
-- Object.getOwnPropertyNames()方法
-
-  使用Object对象的getOwnPropertyNames方法，获取到对象中的属性名，存到一个数组中，返回数组对象，我们可以通过判断数组的length来判断此对象是否为空
-
-```javascript
-let obj = {};
-let b = Object.getOwnPropertyNames(obj);
-console.log(b.length); // 0 
-```
-
-- 使用ES6的Object.keys()方法
-
-```javascript
-//该方法返回的同样是属性名组成的数组对象。
-let obj = {};
-let arr = Object.keys(obj);
-console.log(arr.length); // 0	
-```
 
